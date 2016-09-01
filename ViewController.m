@@ -49,9 +49,6 @@ static NSString *const kClientID = @"224581339946-osi7sqrtm1aj2lregm6tcm703afa3v
         [self fetchTasks];
     }
     
-     [NSThread sleepForTimeInterval:10.0f];
-    [self performSegueWithIdentifier:@"toNext" sender:self];
-    
 }
 
 // Construct a query to get a user's task lists using the Google Tasks API.
@@ -87,7 +84,8 @@ static NSString *const kClientID = @"224581339946-osi7sqrtm1aj2lregm6tcm703afa3v
                 manager.securityPolicy.allowInvalidCertificates = YES;
                 manager.securityPolicy.validatesDomainName = NO;
                 
-                [manager GET:@"https://www.googleapis.com/tasks/v1/users/@me/lists" parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                NSString *tasksUrl = (@"https://www.googleapis.com/tasks/v1/lists/%@/tasks",taskList.identifier);
+                [manager GET:tasksUrl parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                     NSLog(@"_________________________JSON: %@", responseObject);
                 } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                     NSLog(@"_________________________Error: %@", error);
@@ -104,6 +102,7 @@ static NSString *const kClientID = @"224581339946-osi7sqrtm1aj2lregm6tcm703afa3v
 // Creates the auth controller for authorizing access to Google Tasks API.
 - (GTMOAuth2ViewControllerTouch *)createAuthController {
     GTMOAuth2ViewControllerTouch *authController;
+
     // If modifying these scopes, delete your previously saved credentials by
     // resetting the iOS simulator or uninstall the app.
     NSArray *scopes = [NSArray arrayWithObjects:kGTLAuthScopeTasksReadonly, nil];
