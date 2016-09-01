@@ -15,7 +15,6 @@
 @interface ViewController : UIViewController
 
 @property (nonatomic, strong) GTLServiceTasks *service;
-@property (nonatomic, strong) UITextView *output;
 @property (nonatomic, retain) GTMOAuth2Authentication *auth;
 
 

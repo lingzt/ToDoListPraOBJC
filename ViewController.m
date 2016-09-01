@@ -16,18 +16,12 @@ static NSString *const kClientID = @"224581339946-osi7sqrtm1aj2lregm6tcm703afa3v
 @implementation ViewController
 
 @synthesize service = _service;
-@synthesize output = _output;
+
 
 // When the view loads, create necessary subviews, and initialize the Google Tasks API service.
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Create a UITextView to display output.
-    self.output = [[UITextView alloc] initWithFrame:self.view.bounds];
-    self.output.editable = false;
-    self.output.contentInset = UIEdgeInsetsMake(20.0, 0.0, 20.0, 0.0);
-    self.output.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-    [self.view addSubview:self.output];
+
 
     
     // Initialize the Google Tasks API service & load existing credentials from the keychain if available.
@@ -43,7 +37,6 @@ static NSString *const kClientID = @"224581339946-osi7sqrtm1aj2lregm6tcm703afa3v
     if (!self.service.authorizer.canAuthorize) {
         // Not yet authorized, request authorization by pushing the login UI onto the UI stack.
         [self presentViewController:[self createAuthController] animated:YES completion:nil];
-        
     } else {
         [self fetchTasks];
     }
@@ -52,7 +45,6 @@ static NSString *const kClientID = @"224581339946-osi7sqrtm1aj2lregm6tcm703afa3v
 
 // Construct a query to get a user's task lists using the Google Tasks API.
 - (void)fetchTasks {
-    self.output.text = @"Getting task lists...";
     GTLQueryTasks *query =
     [GTLQueryTasks queryForTasklistsList];
     query.maxResults = 10;
