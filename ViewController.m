@@ -15,12 +15,13 @@ static NSString *const kClientID = @"224581339946-osi7sqrtm1aj2lregm6tcm703afa3v
 
 @implementation ViewController
 
-@synthesize service = _service;
 
 
 // When the view loads, create necessary subviews, and initialize the Google Tasks API service.
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.leftButton.title = @"Sign Out";
+    
 
 
     

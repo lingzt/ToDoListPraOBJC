@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="jJp-0g-Mt2">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -18,10 +18,36 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="dVj-bM-syJ">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="BMc-BP-nZZ"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="2Bh-qm-rc0"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="leftButton" destination="BMc-BP-nZZ" id="F6F-32-hf3"/>
+                        <outlet property="rightButton" destination="2Bh-qm-rc0" id="aP5-iq-njV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="259.19999999999999" y="329.91333333333336"/>
+            <point key="canvasLocation" x="791" y="329"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="EIg-kK-rA6">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jJp-0g-Mt2" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="x0m-Uf-l4M">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Pcd-TK-57N"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rl4-gG-3cK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="259" y="329"/>
         </scene>
     </scenes>
 </document>

@@ -16,6 +16,8 @@
 
 @property (nonatomic, strong) GTLServiceTasks *service;
 @property (nonatomic, retain) GTMOAuth2Authentication *auth;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *leftButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *rightButton;
 
 
 @end
