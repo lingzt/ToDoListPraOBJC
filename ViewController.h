@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "GTMOAuth2ViewControllerTouch.h"
 #import "GTLTasks.h"
+#import "AFNetworking.h"
+#import "AFHTTPSessionManager.h"
 
 @interface ViewController : UIViewController
 

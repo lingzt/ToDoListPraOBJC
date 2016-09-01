@@ -7,8 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "AFNetworking.h"
-#import "AFHTTPSessionManager.h"
+
 
 
 static NSString *const kKeychainItemName = @"Google Tasks API";
@@ -84,8 +83,11 @@ static NSString *const kClientID = @"224581339946-osi7sqrtm1aj2lregm6tcm703afa3v
                 manager.securityPolicy.allowInvalidCertificates = YES;
                 manager.securityPolicy.validatesDomainName = NO;
                 
-                NSString *tasksUrl = (@"https://www.googleapis.com/tasks/v1/lists/%@/tasks",taskList.identifier);
-                [manager GET:tasksUrl parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+
+                
+                NSString *urlString = [NSString stringWithFormat:@"https://www.googleapis.com/tasks/v1/lists/%@/tasks", taskList.identifier];
+
+                [manager GET:urlString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                     NSLog(@"_________________________JSON: %@", responseObject);
                 } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                     NSLog(@"_________________________Error: %@", error);
